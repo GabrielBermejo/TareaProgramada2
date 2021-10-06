@@ -4,19 +4,16 @@
 #include <string>
 
 class Empleado {
-    int id;
-    std::string nombre;
-    std::string apellido;
-    std::string email;
-    int tipo;
-    int id_supervisor;
     protected:
-    Empleado() { }
-
+    Empleado() {}
     public:
-    Empleado(int, std::string, std::string, std::string, int, int) {}
+    
     ~Empleado() {}
-    virtual float CalculoPago() = 0;  
+    virtual void CalculoPago() = 0;  
+    virtual int getID()=0;
+    virtual std::string getNombreCompleto()=0;
+    virtual float getPago()=0;
+    
 };
 
 #endif
