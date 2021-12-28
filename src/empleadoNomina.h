@@ -5,14 +5,14 @@
 #include <string>
 
 class EmpleadoNomina : public Empleado {
-    int id;
+    /*int id;
     std::string nombre;
     std::string apellido;
     std::string email;
     int tipo;
-    int id_supervisor;
+    int id_supervisor;*/
     int salario;
-    float pago;
+    //float pago;
 
     public:
         EmpleadoNomina(int, char[], char[], char[], int, int, int);

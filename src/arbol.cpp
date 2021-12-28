@@ -1,10 +1,13 @@
 #include <map>
 #include "arbol.h"
 #include "nodo.h"
+#include "empleado.h" 
+#include "empleadoNomina.h" 
+#include "empleadoIndependiente.h" 
+#include <iostream>
+Arbol::Arbol(int id, Empleado *empleado) {
 
-Arbol::Arbol(int id, int valor) {
-
-    Nodo *nodoRaiz = new Nodo(id, valor);
+    Nodo *nodoRaiz = new Nodo(id, empleado);
     this->raiz = nodoRaiz;
 
     this->elementos.insert(std::pair<int,Nodo *>(id, nodoRaiz));
@@ -18,9 +21,9 @@ Arbol::~Arbol() {
 }
 
 
-void Arbol::AgregarNodo(int id, int valor, int idPadre)
+void Arbol::AgregarNodo(int id, Empleado *empleado, int idPadre)
 {
-    Nodo *nodo = new Nodo(id, valor);
+    Nodo *nodo = new Nodo(id, empleado);
 
 
     Nodo *nodoPadre = this->elementos.at(idPadre);

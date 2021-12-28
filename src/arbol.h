@@ -3,6 +3,8 @@
 
 #include "nodo.h"
 #include <map>
+#include <iostream>
+#include "empleado.h" 
 
 class Arbol {
 
@@ -10,9 +12,9 @@ class Arbol {
     std::map<int, Nodo *> elementos;
 
     public:
-    Arbol(int id, int valor);
+    Arbol(int id, Empleado *empleado);
     ~Arbol();
-    void AgregarNodo(int id, int valor, int idPadre);
+    void AgregarNodo(int id, Empleado *empleado, int idPadre);
 
     friend std::ostream& operator << (std::ostream &o, const Arbol &arbol);
 };

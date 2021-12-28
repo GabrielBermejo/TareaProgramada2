@@ -17,6 +17,15 @@ void EmpleadoIndependiente::CalculoPago(){
     this->pago=this->montoporhora*this->horas;
 }
 
+int EmpleadoIndependiente::getID(){
+    return this->id;
+}
+
+std::string EmpleadoIndependiente::getNombreCompleto(){
+    std::string out = this->nombre + " " + this->apellido;
+    return out;
+}
+
 float EmpleadoIndependiente::getPago(){
     return this->pago;
 }

@@ -5,6 +5,13 @@
 
 class Empleado {
     protected:
+    int id;
+    std::string nombre;
+    std::string apellido;
+    std::string email;
+    int tipo;
+    int id_supervisor;
+    float pago;
     Empleado() {}
     public:
     
