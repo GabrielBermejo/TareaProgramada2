@@ -1,5 +1,5 @@
-#ifndef EMPLEADONOMINA_H
-#define EMPLEADONOMINA_H
+#ifndef EMPLEADOINDEPENDIENTE_H
+#define EMPLEADOINDEPENDIENTE_H
 
 #include "empleado.h"
 #include <string>

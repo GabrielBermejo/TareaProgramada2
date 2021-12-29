@@ -3,10 +3,11 @@
 #include <string>
 #include <vector>
 #include "empleado.h"
+#include "arbol.h"
 class Input{
-    std::vector <Person> personvector;
+    Arbol* arbol;
     public:
     Input();
-    void Read();
+    Arbol* Read();
 };
 #endif

@@ -2,10 +2,15 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+
 #include "arbol.h"
+#include "empleadoNomina.h" 
+#include "empleadoIndependiente.h" 
+
 #include "input.h"
 #include "nominaInput.h"
 #include "independienteInput.h"
+
 #include "OutOfBoundsException.h"
 #include "FileCouldntBeFoundException.h"
 using namespace std;
@@ -14,7 +19,7 @@ Input::Input(){
 
 }
 
-void Input::Read() {
+Arbol* Input::Read() {
 
     std::ifstream ifs("Personas.txt", std::ifstream::in);
     if (!ifs.is_open())
@@ -114,22 +119,47 @@ void Input::Read() {
             stream >> svID;
 
             //
-
+            
             switch (type)
             {
             case 1:
-                NominaInput *in = new NominaInput(id);
-                int salary=in->Read();
+            {
+                
+                NominaInput *in = new NominaInput();
+                int salary=in->Read(id);
                 EmpleadoNomina* emp = new EmpleadoNomina(id, name, lastname, email, type, svID, salary);  
-                break;
+
+                //Checks that the arbol exists, if not, creates one.
+                if (initial)
+                {
+                    //Arbol *arbol2 = new Arbol(id, emp);
+                    this->arbol->RootSet(id, emp);
+                    initial=false;
             
+                }
+                else{
+                    this->arbol->AgregarNodo(id, emp, svID);
+                }
+                break;
+            }
             default:
-                IndependienteInput *in = new IndependienteInput(id);
-                int payperhour[2]=in->Read();
+                IndependienteInput *in = new IndependienteInput();
+                int* payperhour=in->Read(id);
                 EmpleadoIndependiente* emp = new EmpleadoIndependiente(id, name, lastname, email, type, svID, payperhour[0], payperhour[1]);
+
+                //Checks that the arbol exists, if not, creates one.
+                if (initial)
+                {
+                    this->arbol->RootSet(id, emp);
+                    initial=false;
+                }
+                else{
+                    this->arbol->AgregarNodo(id, emp, svID);
+                }
                 break;
             }
 
+            /*
             //Checks that the arbol exists, if not, creates one.
             if (initial)
             {
@@ -138,7 +168,7 @@ void Input::Read() {
             }
             else{
                 arbol->AgregarNodo(id, emp, svID);
-            }
+            }*/
             
 
         }
@@ -147,6 +177,8 @@ void Input::Read() {
             cerr << excepcion << endl;
         }
     }
-    
+    std::cout<<"years of war";
     ifs.close();
+    
+    return arbol;
 }

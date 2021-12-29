@@ -18,9 +18,9 @@ class EmpleadoNomina : public Empleado {
         EmpleadoNomina(int, char[], char[], char[], int, int, int);
         float CalculoRetencion(); 
         virtual void CalculoPago(); 
-        virtual int getID()=0;
-        virtual std::string getNombreCompleto()=0;
-        virtual float getPago()=0;
+        virtual int getID();
+        virtual std::string getNombreCompleto();
+        virtual float getPago();
 };
 
 #endif

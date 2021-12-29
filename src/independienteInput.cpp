@@ -11,7 +11,7 @@ IndependienteInput::IndependienteInput(){
 
 }
 
-void IndependienteInput::Read(int targetID) {
+int* IndependienteInput::Read(int targetID) {
 
     std::ifstream ifs("HorasTrabajadas.txt", std::ifstream::in);
     if (!ifs.is_open())
@@ -63,4 +63,5 @@ void IndependienteInput::Read(int targetID) {
     }
     
     ifs.close();
+    return 0;
 }

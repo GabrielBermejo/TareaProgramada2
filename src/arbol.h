@@ -14,6 +14,7 @@ class Arbol {
     public:
     Arbol(int id, Empleado *empleado);
     ~Arbol();
+    void RootSet(int id, Empleado *empleado);
     void AgregarNodo(int id, Empleado *empleado, int idPadre);
 
     friend std::ostream& operator << (std::ostream &o, const Arbol &arbol);

@@ -20,6 +20,14 @@ Arbol::~Arbol() {
 
 }
 
+void Arbol::RootSet(int id, Empleado *empleado) {
+    
+    Nodo *nodoRaiz = new Nodo(id, empleado);
+    this->raiz = nodoRaiz;
+    std::cout<<"allgoood";
+    this->elementos.insert(std::pair<int,Nodo *>(id, nodoRaiz));
+
+}
 
 void Arbol::AgregarNodo(int id, Empleado *empleado, int idPadre)
 {

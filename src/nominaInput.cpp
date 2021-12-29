@@ -11,7 +11,7 @@ NominaInput::NominaInput(){
 
 }
 
-void NominaInput::Read(int targetID) {
+int NominaInput::Read(int targetID) {
 
     std::ifstream ifs("Nomina.txt", std::ifstream::in);
     if (!ifs.is_open())
@@ -36,7 +36,7 @@ void NominaInput::Read(int targetID) {
 
             //variables where read values will be stored and then printed 
             int id {0};
-            int payRate {0};
+            int salary {0};
 
             //string to store string values temporarily 
             string temp;
@@ -61,4 +61,5 @@ void NominaInput::Read(int targetID) {
     }
     
     ifs.close();
+    return 0;
 }

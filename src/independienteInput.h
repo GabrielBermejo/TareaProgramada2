@@ -5,6 +5,6 @@
 class IndependienteInput{
     public:
     IndependienteInput();
-    int[2] Read(int targetID);
+    int* Read(int targetID);
 };
 #endif
