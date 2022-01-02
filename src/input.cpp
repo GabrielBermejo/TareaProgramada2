@@ -118,15 +118,18 @@ Arbol* Input::Read() {
             //storing Supervisor ID in variable 
             stream >> svID;
 
-            //
+            //checks the employee type and switches accordingly
             
             switch (type)
             {
             case 1:
             {
-                
+                //creates an input to read the specific file with the ID
+
                 NominaInput *in = new NominaInput();
                 int salary=in->Read(id);
+
+                //creates the employee with the data gathered
                 EmpleadoNomina* emp = new EmpleadoNomina(id, name, lastname, email, type, svID, salary);  
 
                 //Checks that the arbol exists, if not, creates one.
@@ -143,8 +146,13 @@ Arbol* Input::Read() {
                 break;
             }
             default:
+
+                //creates an input to read the specific file with the ID
+
                 IndependienteInput *in = new IndependienteInput();
                 int* payperhour=in->Read(id);
+
+                //creates the employee with the data gathered
                 EmpleadoIndependiente* emp = new EmpleadoIndependiente(id, name, lastname, email, type, svID, payperhour[0], payperhour[1]);
 
                 //Checks that the arbol exists, if not, creates one.
