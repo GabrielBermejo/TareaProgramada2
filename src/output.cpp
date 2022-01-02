@@ -1,7 +1,11 @@
 #include <fstream>
 #include <iostream>
+#include "output.h"
 #include "arbol.h"
-void output(Arbol* arbol)
+Output::Output(){
+
+}
+void PrintToFile(Arbol* arbol)
 {
     
     std::ofstream file("Reporte.csv", std::ofstream::out);

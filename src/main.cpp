@@ -4,6 +4,7 @@
 #include "empleadoNomina.h"
 #include "empleado.h"
 #include "input.h"
+#include "output.h"
 #include <string>
 int main() {
 
@@ -38,11 +39,16 @@ int main() {
     
 
     */
+
+   //reads and stores in an arbol
     Input *in = new Input;
     Arbol *arbol = in->Read();
 
-    std::cout<<"often";
-    delete arbol;
+    //outputs said arbol onto a csv file
+    Output *out = new Output;
+    out->PrintToFile();
 
+
+    delete arbol;
     return 0;
 }
